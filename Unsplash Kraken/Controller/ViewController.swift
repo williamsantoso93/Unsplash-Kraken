@@ -135,6 +135,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.imageView.downloadImage(from: urlString)
         cell.likesLabel.text = imageDatas[indexPath.row].likes.toStringFormatted()
         
+        
         return cell
     }
     

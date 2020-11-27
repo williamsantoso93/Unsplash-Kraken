@@ -31,7 +31,7 @@ class ImageViewController: UIViewController {
         
         guard let result = result else { return }
         
-        image.downloadImage(from: result.urls.full) { (isDone) in
+        image.downloadImage(from: result.urls.regular) { (isDone) in
             if isDone {
                 self.loadingIndicator.stopAnimating()
             }
