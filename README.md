@@ -7,3 +7,5 @@ Tested using iOS 14.2 in :
 * iPhone Xr (Real device)
 
 Tested using UI unit Test
+
+Created by : William Santoso / +62 899 899 3271 / williamsantoso93@yahoo.com
