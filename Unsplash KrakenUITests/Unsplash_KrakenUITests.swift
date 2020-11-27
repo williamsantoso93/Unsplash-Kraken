@@ -21,14 +21,41 @@ class Unsplash_KrakenUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
+    
+    func testUI() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+//        let app = XCUIApplication()
+        let keywords = ["iphone","sea","road"]
+        for keyword in keywords {
+            let unsplashKrakenNavigationBar = app.navigationBars["Unsplash Kraken"]
+            unsplashKrakenNavigationBar.searchFields["Type here to search image"].tap()
+            unsplashKrakenNavigationBar.searchFields.element.typeText(keyword)
+            
+            app.buttons["Search"].tap()
+            
+            let collectionViewsQuery = app.collectionViews
+            collectionViewsQuery.children(matching: .cell).element(boundBy: 2).children(matching: .other).element.tap()
+            
+            let unsplashKrakenButton = app.navigationBars["Unsplash_Kraken.ImageView"].buttons["Unsplash Kraken"]
+            unsplashKrakenButton.tap()
+            
+            let element = collectionViewsQuery.children(matching: .cell).element(boundBy: 4).children(matching: .other).element
+            element.swipeUp()
+            element.tap()
+            unsplashKrakenButton.tap()
+            unsplashKrakenNavigationBar.buttons["Cancel"].tap()
+            
+            element.swipeDown()
+            element.swipeDown()
+            element.swipeDown()
+        }
+        
     }
 
     func testLaunchPerformance() throws {
